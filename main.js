@@ -27,55 +27,32 @@ app.getInfo = function () {
       s_track_rating: "DESC"
     }
   }).then(res => {
-    console.log(res);
+    // console.log(res);
     
     
     //FILTER API RESULTS BASED ON USER INPUT 
-    //Create a function that filters results by genre
-    
-    //---------------------------
-    // const trackList = res.message.body.track_list;
-    // console.log(trackList);
 
-    // const theRealGenreList = [];
-    // const theRealGenre = [];
-    // const almostThere = [];
-    
-    // trackList.forEach(track => {
-    //   theRealGenreList.push(track.track.primary_genres.music_genre_list);
-    // });
-    // console.log("therealGenreList", theRealGenreList);
+    //Create an organized array of tracks with their keys
+    const trackList = res.message.body.track_list;
+    console.log("tracklist", trackList);
 
-    // theRealGenreList.forEach(genre => {
-    //   theRealGenre.push(genre);
-    // });
-    // console.log("therealgenre", theRealGenre);
-
-    // theRealGenre.forEach(value => {
-    //   if (value.length > 0){
-    //     almostThere.push(value);
-    //   }
-    // });
-    // console.log("almostthere", almostThere);
-
-    // console.log(almostThere[0][0].music_genre.music_genre_name);
-    //-------------------------------------
-    // res.message.body.track_list[0].track.primary_genres.music_genre_list[0]
-
-    //Created an organized array of tracks with their keys
-    const trackList = res.message.body.track_list
-    console.log(trackList)
-
-    const newList = []
-    console.log(trackList[0].track)
+    const newList = [];
     for (let i=0; i<trackList.length; i++){
       newList.push(trackList[i].track);
     }
-    console.log("newlist", newList)
+    console.log("newlist", newList);
     
-    // newList[0].primary_genres.music_genre_list[0].music_genre.music_genre_name
+    //for each track, put the genres in an array
+    for(let i=0; i < newList.length; i++){
+    const compressedGenresList = newList[i].primary_genres.music_genre_list;
 
-    console.log(newList[0].primary_genres.music_genre_list[0].toString())
+    const namesOnly = [];
+    compressedGenresList.forEach(function(genre){
+      namesOnly.push(genre.music_genre.music_genre_name);
+      return namesOnly;
+    })
+    console.log("namesOnly", namesOnly);
+    }
 
   })
 
