@@ -32,29 +32,71 @@ app.getInfo = function () {
     }
     console.log("newlist", newList);
     //--------------------------------------------
+    // GET THE GENRES
+    const genres = [];
     const getTheGenres = function(){
-      //for each track, put the genres in an array:
-        //first, create a for loop that returns the music genre list (which is an array) in each track
       for(let i=0; i < newList.length; i++){
-      const compressedGenresList = newList[i].primary_genres.music_genre_list;
-
-        //second, create an array that lists only the names of each genre in each track (by getting the music_genre_name from each value in the music genre list array)
-      const namesOnly = [];
-      compressedGenresList.forEach(function(genre){
-        namesOnly.push(genre.music_genre.music_genre_name);
-        return namesOnly;
-      })
-      console.log("namesOnly", namesOnly);
+        genres.push(newList[i].primary_genres.music_genre_list);
       }
     };
     getTheGenres();
+    console.log("genres", genres);
+    
+    const theGenres = [];
+    for(let i=0; i < genres.length; i++){
+      const genre = genres[i];
+      const genreList = []
+      for(let i=0; i < genre.length; i++){
+        const name = genre[i].music_genre.music_genre_name;
+        genreList.push(name);
+      }
+      theGenres.push(genreList);
+    }
+
+    console.log("theGenres", theGenres);
+       
+
     //--------------------------------------------
+    //GET THE TRACK NAMEs
+    const trackName = [];
+    const getTheTrackNames = function(){
+      for(let i=0; i < newList.length; i++){
+        trackName.push(newList[i].track_name);
+      }
+    }
+    getTheTrackNames();
+    console.log(trackName);
+    //--------------------------------------------
+    //GET THE ARTIST NAMES
+    const artistName = [];
+    const getTheArtist = function() {
+      for (let i=0; i < newList.length; i++){
+        artistName.push(newList[i].artist_name);
+      }
+    }
+    getTheArtist();
+    console.log(artistName);
   })
+
 }
 
-$("select").on("change", function (){
-  const userGenre = $(this).val();
-});
+// newArray[i].push(getTheGenres[i],artistName[i],trackName[i])
+
+//create a loop that will run for as long as the length of the array
+
+// inside of the loop, create an empty object
+
+//OUR EVENT LISTENER
+app.listenForUserInput = function(){
+
+  $("select").on("change", function (){
+    const userGenre = $(this).val();
+  });
+
+  //Insert here the argument for the future function that will find tracks that match this genre ex: artApp.getArt(animal) 
+}
+
+
 
 $(function () {
   app.getInfo();;
