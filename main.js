@@ -27,7 +27,7 @@ app.getInfo = function () {
       s_track_rating: "DESC"
     }
   }).then(res => {
-    console.log(res);
+    // console.log(res);
     
     
     //FILTER API RESULTS BASED ON USER INPUT 
@@ -64,18 +64,23 @@ app.getInfo = function () {
 
     //Created an organized array of tracks with their keys
     const trackList = res.message.body.track_list
-    console.log(trackList)
+    // console.log(trackList)
 
     const newList = []
-    console.log(trackList[0].track)
+    // console.log(trackList[0].track)
     for (let i=0; i<trackList.length; i++){
       newList.push(trackList[i].track);
     }
     console.log("newlist", newList)
+
     
     // newList[0].primary_genres.music_genre_list[0].music_genre.music_genre_name
 
-    console.log(newList[0].primary_genres.music_genre_list[0].toString())
+    // console.log(newList[0].primary_genres.music_genre_list[0].toString())
+
+    // for (let i=0; i<newList.length; i++){
+    //   console.log([i]artist_name);
+    // }
 
   })
 
