@@ -36,31 +36,6 @@ app.getInfo = function () {
     const trackList = res.message.body.track_list;
     console.log("tracklist", trackList);
 
-<<<<<<< HEAD
-    // console.log(almostThere[0][0].music_genre.music_genre_name);
-    //-------------------------------------
-    // res.message.body.track_list[0].track.primary_genres.music_genre_list[0]
-
-    //Created an organized array of tracks with their keys
-    const trackList = res.message.body.track_list
-    // console.log(trackList)
-
-    const newList = []
-    // console.log(trackList[0].track)
-    for (let i=0; i<trackList.length; i++){
-      newList.push(trackList[i].track);
-    }
-    console.log("newlist", newList)
-
-    
-    // newList[0].primary_genres.music_genre_list[0].music_genre.music_genre_name
-
-    // console.log(newList[0].primary_genres.music_genre_list[0].toString())
-
-    // for (let i=0; i<newList.length; i++){
-    //   console.log([i]artist_name);
-    // }
-=======
     const newList = [];
     for (let i=0; i<trackList.length; i++){
       newList.push(trackList[i].track);
@@ -78,7 +53,6 @@ app.getInfo = function () {
     })
     console.log("namesOnly", namesOnly);
     }
->>>>>>> 0b217d913066ea827d25743fa24ec5ce87e9ff13
 
   })
 
