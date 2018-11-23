@@ -76,13 +76,13 @@ app.getTheGenres = function(newList){
           genreList.push(name);
         }
       }
+      //Push the genre names into an array (genre list)
       getEachGenreName(genre);
 
-      //Push the genre names into an array (genre list)
+      //put all the genre lists into one array
       theGenres.push(genreList);
     }
   }
-  //put all the genre lists into one array
   getEachGenre(genreGroup)
 };
 
