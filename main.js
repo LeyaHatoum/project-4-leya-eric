@@ -12,11 +12,11 @@ app.getInfo = function () {
     data: {
       apikey: app.Key,
       format: "jsonp",
-      f_music_genre_id: "7",
+      f_music_genre_id: "100007",
       page_size: "100",
       // q_track_artist: `beyonce`,
       // f_has_lyrics: `happy`,
-      // s_artist_rating: "ASC",
+      // s_artist_rating: "DESC",
       s_track_rating: "DESC"
     }
   }).then(res => {
@@ -31,6 +31,8 @@ app.getInfo = function () {
       newList.push(trackList[i].track);
     }
     console.log("newlist", newList);
+
+
     //--------------------------------------------
     // GET THE GENRES
     const genres = [];
@@ -76,22 +78,40 @@ app.getInfo = function () {
     }
     getTheArtist();
     console.log(artistName);
+
+    //--------------------------------------------
+    //CREATE OBJECTS FOR EACH TRACK, AND PLACE THEM IN NEW ARRAY
+    app.sortedList = [];
+
+    for (let i=0; i < newList.length; i++){
+      const track = {genre: theGenres[i], artist: artistName[i], track: trackName[i]};
+      app.sortedList.push(track);
+    }
+    console.log("made them into objects", app.sortedList);
+
+    //CREATE ARRAY OF TRACKS THAT MATCH USER INPUT GENRE -- USER INPUT HAS NOT BEEN CONNECTED YET*******
+
+    const userPlaylist = [];
+    app.sortedList.forEach(function(track){
+      for (let i=0; i <track.genre.length; i++){
+        if ($("select").val() === track.genre[i]){
+          userPlaylist.push(track);
+        }
+      }
+    })
+    console.log(userPlaylist);
   })
+  
 
-}
+  //OUR EVENT LISTENER
+  app.listenForUserInput = function(){
+  
+    $("select").on("change", function (){
+      const userGenre = $(this).val();
+    });
+  }
 
-// newArray[i].push(getTheGenres[i],artistName[i],trackName[i])
 
-//create a loop that will run for as long as the length of the array
-
-// inside of the loop, create an empty object
-
-//OUR EVENT LISTENER
-app.listenForUserInput = function(){
-
-  $("select").on("change", function (){
-    const userGenre = $(this).val();
-  });
 
   //Insert here the argument for the future function that will find tracks that match this genre ex: artApp.getArt(animal) 
 }
