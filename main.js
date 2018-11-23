@@ -121,3 +121,5 @@ app.getInfo = function () {
 $(function () {
   app.getInfo();;
 });   
+
+//Eric's version
