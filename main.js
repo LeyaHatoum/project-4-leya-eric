@@ -6,9 +6,10 @@ const theGenres = [];
 const trackName = [];
 const artistName = [];
 const sortedList = [];
+const megaList = [];
 
 //API CONFIGURATION
-app.getInfo = function () {
+app.getInfo = function (pageNumber) {
   app.url = 'http://api.musixmatch.com/ws/1.1/';
   app.Key = '3ab5684680f38c7ad48e5a3d9078a81c';
   $.ajax({
@@ -19,25 +20,42 @@ app.getInfo = function () {
       apikey: app.Key,
       format: "jsonp",
       f_music_genre_id: "7",
-      page_size: "100",
-      page: 1,
+      page_size: "5",
+      page: pageNumber,
       s_track_rating: "DESC"
     },
   })
   .then(res => {
-    app.trackList(res.message.body.track_list);
+    // app.trackList(res.message.body.track_list);
+    const results = [res.message.body.track_list];
+    for (let i=0; i<results[0].length; i++){
+      megaList.push(results[0][i]);
+    };
   });
 };
 
+//CREATE A MEGALIST TO HOLD MORE THAN 100 SONGS
+//The api only allows 100 results per page, but we can have as many pages as we want. So to work around that we want to compile the results of 10 pages into one page, in order to display them all on the screen at once.
+app.megaList = function () {
+  for (let i=0; i < 10; i++){
+    pageNumber = i+1;
+    app.getInfo(pageNumber);
+  }
+  console.log("megaList", megaList);
+  console.log("megaList length", megaList.length);
+  app.trackList(megaList);
+}
+
+
 //CREATE AN ORGANIZED ARRAY OF TRACKS TO WORK WITH
-app.trackList = function (newRes) {
-  
+app.trackList = function (megaList) {
+  console.log("app.tracklist", megaList);
   //Navigate through the nesting of API database
   const newList = [];
-  for (let i=0; i<newRes.length; i++){
-    newList.push(newRes[i].track);
+  for (let i=0; i<megaList.length; i++){
+    newList.push(megaList[i].track);
   }
-
+  console.log("app.trackList newList", newList);
   //Get the three arrays of track info
   app.getTheGenres(newList);
   app.getTheArtist(newList);
@@ -76,13 +94,13 @@ app.getTheGenres = function(newList){
           genreList.push(name);
         }
       }
+      //Push the genre names into an array (genre list)
       getEachGenreName(genre);
 
-      //Push the genre names into an array (genre list)
+      //put all the genre lists into one array
       theGenres.push(genreList);
     }
   }
-  //put all the genre lists into one array
   getEachGenre(genreGroup)
 };
 
@@ -129,7 +147,7 @@ app.matchGenre = function (userGenre){
 
 //KICK OFF APPLICATION 
 app.init = function () {
-  app.getInfo();
+  app.megaList();
   app.listenForUserInput();
 }
 
