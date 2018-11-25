@@ -28,6 +28,7 @@ app.getInfo = function (pageNumber) {
   .then(res => {
     // app.trackList(res.message.body.track_list);
     const results = [res.message.body.track_list];
+    console.log('results' ,results);
     for (let i=0; i<results[0].length; i++){
       megaList.push(results[0][i]);
     };
@@ -37,7 +38,7 @@ app.getInfo = function (pageNumber) {
 //CREATE A MEGALIST TO HOLD MORE THAN 100 SONGS
 //The api only allows 100 results per page, but we can have as many pages as we want. So to work around that we want to compile the results of 10 pages into one page, in order to display them all on the screen at once.
 app.megaList = function () {
-  for (let i=0; i < 10; i++){
+  for (let i=1; i <= 10; i++) {
     pageNumber = i+1;
     app.getInfo(pageNumber);
   }
