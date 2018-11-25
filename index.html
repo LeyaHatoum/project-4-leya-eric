@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|VT323" rel="stylesheet">
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!-- FAVICON -->
@@ -21,21 +21,24 @@
     <a href="#maincontent" class="skip-link">Skip to main content.</a>
 
     <main>
-        <h1 class="animated infinite pulse">Electronica *infused* tracks generator</h1>
+        <h1 class="animated infinite pulse">ELECTRONICA Music Generator</h1>
         <div class="intro">
-            <p>Hello there! Please pick a genre you are most familar with or like listening to and based on that genre, we'll generate a playlist for you!</p>
+            <p>Hello there! Please pick your favourite genre and we'll generate a playlist based on what you might like that's electronic infused and popular!</p>
         </div>
-        <form>
-            <label for="genre">Type in your favourite genre:</label>
-            <select name="genre" id="genre">
-                <option value="Rock">Rock</option>
-                <option value="Pop">Pop</option>
-                <option value="Hip Hop/Rap">Hip Hop / Rap</option>
-                <option value="R&b/Soul">R&B / Soul</option>
-            </select>
-            <button>Submit</button>
-        </form>
-        <div class="results"></div>
+        <div>
+            <form>
+                <label for="genre">Pick your Genre:</label>
+                <select name="genre" id="genre">
+                    <option value="">PRESS HERE!</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Hip Hop/Rap">Hip Hop / Rap</option>
+                    <option value="R&b/Soul">R&B / Soul</option>
+                </select>
+                <!-- <button>Submit</button> -->
+            </form>
+        </div>
+        <div class="results" id="results"></div>
     </main>
 
     <footer class="footer">

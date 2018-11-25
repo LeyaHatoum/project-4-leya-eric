@@ -151,6 +151,12 @@ html,
 body {
   height: 100%; }
 
+label,
+.intro p,
+select,
+button {
+  font-family: 'VT323', monospace; }
+
 .skip-link {
   position: absolute;
   left: -1000px;
@@ -162,22 +168,56 @@ body {
 .skip-link:focus {
   left: 0; }
 
-h1 {
-  font-family: 'VT323', monospace;
-  text-align: center;
-  font-size: 60px;
-  font-size: 6rem; }
-
-form {
-  margin: 0 auto; }
+.main-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: auto; }
 
 main {
   -webkit-box-flex: 1;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto; }
 
+h1 {
+  font-family: 'VT323', monospace;
+  text-align: center;
+  font-size: 60px;
+  font-size: 6rem;
+  text-shadow: 3px 3px seagreen; }
+
+.intro {
+  margin: 0 auto;
+  background: #fff;
+  color: black;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  width: 50%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 30px;
+  font-size: 3rem;
+  box-shadow: 8px 8px 5px 0px seagreen;
+  -webkit-box-shadow: 8px 8px 0px 0px seagreen;
+  -moz-box-shadow: 8px 8px 0px 0px seagreen; }
+
+.intro p {
+  font-size: 20px;
+  font-size: 2rem;
+  padding: 0;
+  margin: 0; }
+
+form {
+  margin: 0 auto;
+  margin-top: 40px; }
+
+select {
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
 .footer {
-  width: 100%;
   background: black;
   color: white; }
 
@@ -188,6 +228,17 @@ footer p {
   margin: 0; }
 
 @media only screen and (max-width: 380px) {
+  main {
+    margin-top: 50px; }
   h1 {
+    font-size: 45px;
+    font-size: 4.5rem;
+    text-shadow: 1px 1px seagreen;
+    width: 95%; }
+  .intro {
+    width: 85%;
+    padding: 2px; }
+  .intro p {
     font-size: 20px;
-    font-size: 2rem; } }
+    font-size: 2rem;
+    padding: 5px; } }
