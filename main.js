@@ -129,20 +129,23 @@ app.listenForUserInput = function(){
   });
 }
 
+//APPEND PLAYLIST TO THE DOM
 app.displayResults = function(userPlaylist) {
 //need to write a if statement to handle potential handle an error if there are no results, then app will only display results that match parameters
+  $('.results').append('<h2>Your Personal Playlist</h2>');
+
   userPlaylist.forEach(track => {
 
     if (track) {
 
       $('.results').append(`
-      <div>
-        <div>
-          <h2>Artist</h2>
+      <div class="track">
+        <div class="artist">
+          <h3>Artist:</h3>
           <p>${track.artist}</p>
         </div>
-        <div>
-          <h2>Track</h2>
+        <div class="name">
+          <h3>Track:</h3>
           <p>${track.track}</p>
         </div>
       </div>`)
