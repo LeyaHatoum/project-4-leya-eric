@@ -6,7 +6,7 @@ body {
     background: lightgreen;
     text-align: center;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 html, 
@@ -19,6 +19,12 @@ body {
     font-size: ($size-value / 10) * 1rem;
 }
 
+label,
+.intro p,
+select,
+button {
+    font-family: 'VT323', monospace;
+}
 
 // Acessibility skip link styling
 // ==============================
@@ -35,22 +41,60 @@ body {
     left: 0;
 }
 
-h1 {
-    font-family: 'VT323', monospace;
-    text-align: center;
-    @include font-size(60);
+.main-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: auto;
 }
 
-form {
-    margin: 0 auto;
-}
 
 main {
     flex: 1 0 auto;
 }
 
+h1 {
+    font-family: 'VT323', monospace;
+    text-align: center;
+    @include font-size(60);
+    text-shadow: 3px 3px seagreen;
+}
+
+.intro {
+    margin: 0 auto;
+    background: #fff;
+    color: black;
+    align-content: center;
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    @include font-size(30);
+    box-shadow: 8px 8px 5px 0px seagreen;
+    -webkit-box-shadow: 8px 8px 0px 0px seagreen;
+    -moz-box-shadow: 8px 8px 0px 0px seagreen;
+}
+
+.intro p {
+    @include font-size(20);
+    padding: 0;
+    margin: 0;
+}
+
+form {
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+select {
+    border: none;
+    cursor: pointer;
+    text-align: center;
+   -webkit-appearance: none; 
+   -moz-appearance: none;
+}
+
+
 .footer {
-    width: 100%;
+    // width: 100%;
     background: black;
     color: white;       
 }
@@ -66,8 +110,22 @@ footer p {
 
  @media only screen and (max-width: 380px) {
 
-h1 {
-    @include font-size(20);
-}
+    main {
+        margin-top: 50px;
+    }
 
- }
+    h1 {
+        @include font-size(45);
+        text-shadow: 1px 1px seagreen;
+        width: 95%;
+    }
+
+    .intro {
+        width: 85%;
+        padding: 2px;
+    }
+    .intro p {
+        @include font-size(20);
+        padding: 5px;
+    }
+}
