@@ -120,11 +120,10 @@ app.getTheArtist = function(newList) {
 
 //OUR EVENT LISTENER
 app.listenForUserInput = function(){
-
   $("select").on("change", function (){
     const userGenre = $(this).val();
     console.log(userGenre);
-
+    app.clearResults(); //calls the clear function to clear results on the page
     app.matchGenre(userGenre);
   });
 }
@@ -149,6 +148,11 @@ app.displayResults = function(userPlaylist) {
     }  
   });
 };
+
+//This function will enable the page to be cleared to be used when a user selects a different genre
+app.clearResults = function () {
+  $('.results').empty();
+}
 
 //CREATE LIST OF TRACKS THAT MATCHES USER INPUT GENRE 
 app.matchGenre = function (userGenre){
