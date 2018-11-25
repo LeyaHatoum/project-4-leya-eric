@@ -10,7 +10,7 @@ const sortedList = [];
 //API CONFIGURATION
 app.getInfo = function (number) {
   app.url = 'http://api.musixmatch.com/ws/1.1/';
-  app.Key = '3ab5684680f38c7ad48e5a3d9078a81c';
+  app.Key = '65b44286651b46cdf3d8a795ce2b8acf';
   return $.ajax({
     url: `${app.url}track.search`,
     method: "GET",
@@ -28,7 +28,7 @@ app.getInfo = function (number) {
 
 //CREATE A MEGALIST TO HOLD MORE THAN 100 SONGS
 //The api only allows 100 results per page, but we can have as many pages as we want. So to work around that we want to compile the results of 10 pages into one page, in order to display them all on the screen at once.
-const pageNumber = [1,2,3,4,5,6,7,8,9,10];
+const pageNumber = [1,2];
 const ajaxPromises = pageNumber.map(app.getInfo);
 
 $.when(...ajaxPromises).then((...res) => {
@@ -129,6 +129,27 @@ app.listenForUserInput = function(){
   });
 }
 
+app.displayResults = function(userPlaylist) {
+//need to write a if statement to handle potential handle an error if there are no results, then app will only display results that match parameters
+  userPlaylist.forEach(track => {
+
+    if (track) {
+
+      $('.results').append(`
+      <div>
+        <div>
+          <h2>Artist</h2>
+          <p>${track.artist}</p>
+        </div>
+        <div>
+          <h2>Track</h2>
+          <p>${track.track}</p>
+        </div>
+      </div>`)
+    }  
+  });
+};
+
 //CREATE LIST OF TRACKS THAT MATCHES USER INPUT GENRE 
 app.matchGenre = function (userGenre){
   const userPlaylist = [];
@@ -140,14 +161,15 @@ app.matchGenre = function (userGenre){
       }
     }
   })
+  app.displayResults(userPlaylist);
   console.log(userPlaylist);
 }
 
 //KICK OFF APPLICATION 
 app.init = function () {
-  // app.megaList();
   app.getInfo();
   app.listenForUserInput();
+
 }
 
 //DOCUMENT READY
