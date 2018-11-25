@@ -6,13 +6,12 @@ const theGenres = [];
 const trackName = [];
 const artistName = [];
 const sortedList = [];
-const megaList = [];
 
 //API CONFIGURATION
-app.getInfo = function (pageNumber) {
+app.getInfo = function (number) {
   app.url = 'http://api.musixmatch.com/ws/1.1/';
   app.Key = '3ab5684680f38c7ad48e5a3d9078a81c';
-  $.ajax({
+  return $.ajax({
     url: `${app.url}track.search`,
     method: "GET",
     dataType: "jsonp",
@@ -20,33 +19,31 @@ app.getInfo = function (pageNumber) {
       apikey: app.Key,
       format: "jsonp",
       f_music_genre_id: "7",
-      page_size: "5",
-      page: pageNumber,
-      s_track_rating: "DESC"
+      page_size: "100",
+      page: number,
+      s_track_rating: "DESC",
     },
   })
-  .then(res => {
-    // app.trackList(res.message.body.track_list);
-    const results = [res.message.body.track_list];
-    console.log('results' ,results);
-    for (let i=0; i<results[0].length; i++){
-      megaList.push(results[0][i]);
-    };
-  });
 };
 
 //CREATE A MEGALIST TO HOLD MORE THAN 100 SONGS
 //The api only allows 100 results per page, but we can have as many pages as we want. So to work around that we want to compile the results of 10 pages into one page, in order to display them all on the screen at once.
-app.megaList = function () {
-  for (let i=1; i <= 10; i++) {
-    pageNumber = i+1;
-    app.getInfo(pageNumber);
-  }
-  console.log("megaList", megaList);
-  console.log("megaList length", megaList.length);
+const pageNumber = [1,2,3,4,5,6,7,8,9,10];
+const ajaxPromises = pageNumber.map(app.getInfo);
+
+$.when(...ajaxPromises).then((...res) => {
+  app.megaList = res.map((track)=> {
+    return track[0].message.body.track_list;
+  });
+  app.callMegaList(app.megaList);
+});
+
+
+app.callMegaList = tracks => {
+  const megaList = tracks.flat();
+  console.log("this is my list", megaList);
   app.trackList(megaList);
 }
-
 
 //CREATE AN ORGANIZED ARRAY OF TRACKS TO WORK WITH
 app.trackList = function (megaList) {
@@ -68,7 +65,7 @@ app.trackList = function (megaList) {
     const track = { genre: theGenres[i], artist: artistName[i], track: trackName[i] };
     sortedList.push(track);
   }
-  // console.log("All sorted", sortedList);
+  console.log("All sorted", sortedList);
 }   
 
 // GET THE GENRES --- DO NOT TOUCH THIS SACRED CODE
@@ -148,7 +145,8 @@ app.matchGenre = function (userGenre){
 
 //KICK OFF APPLICATION 
 app.init = function () {
-  app.megaList();
+  // app.megaList();
+  app.getInfo();
   app.listenForUserInput();
 }
 
