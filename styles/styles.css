@@ -210,21 +210,106 @@ form {
   margin: 0 auto;
   margin-top: 40px; }
 
+label {
+  font-size: 20px;
+  font-size: 2rem; }
+
 select {
   border: none;
   cursor: pointer;
   text-align: center;
   -webkit-appearance: none;
-  -moz-appearance: none; }
+  -moz-appearance: none;
+  width: 200px;
+  margin-left: 20px;
+  font-size: 20px;
+  font-size: 2rem; }
+  select:hover .placeholder {
+    display: none; }
+
+h2 {
+  font-family: 'VT323', monospace;
+  text-align: center;
+  font-size: 40px;
+  font-size: 4rem;
+  text-shadow: 3px 3px seagreen; }
 
 .footer {
+  display: block;
+  width: 100%;
   background: black;
   color: white; }
+  .footer p {
+    font-size: 6px;
+    font-size: 0.6rem;
+    padding: 3px;
+    margin: 0; }
 
-footer p {
-  font-size: 6px;
-  font-size: 0.6rem;
-  padding: 3px;
+.results {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 50px; }
+
+.track {
+  width: 90%;
+  max-width: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-flow: wrap;
+  flex-flow: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: white;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: 'VT323', monospace;
+  box-shadow: 8px 8px 5px 0px seagreen;
+  -webkit-box-shadow: 8px 8px 0px 0px seagreen;
+  -moz-box-shadow: 8px 8px 0px 0px seagreen; }
+
+.artist,
+.name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .artist p,
+  .name p {
+    font-size: 18px;
+    font-size: 1.8rem;
+    margin: 0;
+    padding-left: 15px; }
+
+h3 {
+  font-size: 20px;
+  font-size: 2rem;
+  padding: 0;
   margin: 0; }
 
 @media only screen and (max-width: 380px) {
