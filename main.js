@@ -132,25 +132,39 @@ app.listenForUserInput = function(){
 app.displayResults = function(userPlaylist) {
 //need to write a if statement to handle potential handle an error if there are no results, then app will only display results that match parameters
   $('.results').append('<h2>Your Personal Playlist</h2>');
-
+  app.showButton();
   userPlaylist.forEach(track => {
-
     if (track) {
-
       $('.results').append(`
       <div class="track">
-        <div class="artist">
-          <h3>Artist:</h3>
-          <p>${track.artist}</p>
-        </div>
-        <div class="name">
-          <h3>Track:</h3>
-          <p>${track.track}</p>
-        </div>
+      <div class="artist">
+      <h3>Artist:</h3>
+      <p>${track.artist}</p>
+      </div>
+      <div class="name">
+      <h3>Track:</h3>
+      <p>${track.track}</p>
+      </div>
       </div>`)
     }  
   });
 };
+
+// if the playlist is more that 10 tracks show a button to randomize
+app.showButton = function (userPlaylist) {
+  $('.results').append(`<button>Randomize me!</button>`);
+  console.log('do something');
+  app.randomizer();
+}
+
+//function for button to randomize tracks
+app.randomizer = function() {
+    $('button').on('click', function(){
+    const userGenre = $('select').val();
+    app.clearResults();
+    app.matchGenre(userGenre);
+  })
+}
 
 //This function will enable the page to be cleared to be used when a user selects a different genre
 app.clearResults = function () {
@@ -168,9 +182,27 @@ app.matchGenre = function (userGenre){
       }
     }
   })
-  app.displayResults(userPlaylist);
+  app.theChosenTen(userPlaylist);
   console.log(userPlaylist);
 }
+
+//Function that displays only 10 tracks for lists with more than 10 songs
+app.theChosenTen = function (userPlaylist){
+  const topTen = [];
+  if (userPlaylist.length > 9) {
+    for (let i=0; i < 10; i++) {
+      topTen.push(userPlaylist[Math.floor(Math.random() * userPlaylist.length)])
+    }
+    app.displayResults(topTen);
+    console.log('top 10', topTen);
+    } else {
+      app.displayResults(userPlaylist);
+    }
+  }
+
+  //limit user playlist to only 10tracks for genres with more than 10
+  //randomize each time
+
 
 //KICK OFF APPLICATION 
 app.init = function () {
