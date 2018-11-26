@@ -145,7 +145,36 @@ body {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  -webkit-animation: animationFrames ease 1.5s;
+  animation: animationFrames ease 1.5s;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+@-webkit-keyframes animationFrames {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0px, -25px);
+    transform: translate(0px, -25px); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px); } }
+
+@keyframes animationFrames {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0px, -25px);
+    transform: translate(0px, -25px); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px); } }
 
 html,
 body {
@@ -186,7 +215,8 @@ button {
 
 .genre {
   margin-top: 20px;
-  width: 400px;
+  padding: 0 10px;
+  height: 40px;
   border-radius: 10px; }
 
 .skip-link {
@@ -258,8 +288,12 @@ select {
   margin-left: 20px;
   font-size: 20px;
   font-size: 2rem;
-  width: 500px;
-  text-align-last: center; }
+  background-color: white;
+  color: #555;
+  margin: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  overflow: wrap; }
   select:hover .placeholder {
     display: none; }
 
@@ -292,8 +326,8 @@ h2 {
   color: white;
   padding: 10px; }
   .footer p {
-    font-size: 10px;
-    font-size: 1rem;
+    font-size: 14px;
+    font-size: 1.4rem;
     padding: 3px;
     margin: 0;
     margin-right: 20px; }
@@ -321,7 +355,7 @@ h2 {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-top: 50px; }
+  margin: 50px 0; }
 
 .track {
   width: 90%;
@@ -345,7 +379,28 @@ h2 {
   font-family: 'VT323', monospace;
   box-shadow: 8px 8px 5px 0px seagreen;
   -webkit-box-shadow: 8px 8px 0px 0px seagreen;
-  -moz-box-shadow: 8px 8px 0px 0px seagreen; }
+  -moz-box-shadow: 8px 8px 0px 0px seagreen;
+  -webkit-animation: animationFrames ease 1.5s;
+  animation: animationFrames ease 1.5s;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+@keyframes animationFrames {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0px, -25px);
+    transform: translate(0px, -25px); }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px); } }
 
 .artist,
 .name {
@@ -376,7 +431,7 @@ h3 {
   padding: 0;
   margin: 0; }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 500px) {
   main {
     margin-top: 50px; }
   h1 {
@@ -385,7 +440,8 @@ h3 {
     text-shadow: 1px 1px seagreen;
     width: 95%; }
   select {
-    margin-left: 0; }
+    margin-left: 0;
+    width: 250px; }
   .intro {
     width: 85%;
     padding: 2px; }
@@ -397,4 +453,24 @@ h3 {
     display: none; }
   .logo {
     display: block;
-    max-width: 30px; } }
+    max-width: 30px; }
+  .artist,
+  .name {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 100%;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+    .artist p,
+    .name p {
+      font-size: 18px;
+      font-size: 1.8rem;
+      margin: 0;
+      padding-left: 15px;
+      text-align: left; } }
