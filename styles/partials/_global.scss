@@ -7,12 +7,14 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-
     animation: animationFrames ease 1.5s;
     animation-iteration-count: 1;
     transform-origin: 50% 50%;
     animation-fill-mode:forwards;
+    height: 100%;
 }
+
+
 
 @keyframes animationFrames{
   0% {
@@ -144,6 +146,8 @@ select {
     border: none;
     cursor: pointer;
     text-align: center;
+    width: 300px; 
+    text-align-last: center;
    -webkit-appearance: none; 
    -moz-appearance: none;
     margin-left: 20px;
@@ -298,7 +302,7 @@ h3{
     }
     select {
         margin-left: 0;
-        width: 250px;
+        width: 300px;
     }
 
     .intro {
