@@ -9,7 +9,6 @@ const sortedList = [];
 
 //API CONFIGURATION
 app.getInfo = function (number) {
-  // EMERGENCY KEY: a48fb341933640bee5e0f9b0ea3c3470
   app.url = 'http://api.musixmatch.com/ws/1.1/';
   app.Key = '65b44286651b46cdf3d8a795ce2b8acf';
   return $.ajax({
@@ -42,16 +41,19 @@ $.when(...ajaxPromises).then((...res) => {
 
 app.callMegaList = tracks => {
   const megaList = tracks.flat();
+  console.log("this is my list", megaList);
   app.trackList(megaList);
 }
 
 //CREATE AN ORGANIZED ARRAY OF TRACKS TO WORK WITH
 app.trackList = function (megaList) {
+  console.log("app.tracklist", megaList);
   //Navigate through the nesting of API database
   const newList = [];
   for (let i=0; i<megaList.length; i++){
     newList.push(megaList[i].track);
   }
+  console.log("app.trackList newList", newList);
   //Get the three arrays of track info
   app.getTheGenres(newList);
   app.getTheArtist(newList);
@@ -63,6 +65,7 @@ app.trackList = function (megaList) {
     const track = { genre: theGenres[i], artist: artistName[i], track: trackName[i] };
     sortedList.push(track);
   }
+  console.log("All sorted", sortedList);
 }   
 
 // GET THE GENRES --- DO NOT TOUCH THIS SACRED CODE
@@ -145,12 +148,12 @@ app.displayResults = function(userPlaylist) {
       </div>`)
     }  
   });
-  ;
 };
 
 // if the playlist is more that 10 tracks show a button to randomize
 app.showButton = function (userPlaylist) {
   $('.results').append(`<div class"buttonDepth><button class="randomButton">Randomize me!</button></div>`);
+  console.log('do something');
   app.randomizer();
 }
 
@@ -180,6 +183,7 @@ app.matchGenre = function (userGenre){
     }
   })
   app.theChosenTen(userPlaylist);
+  console.log(userPlaylist);
 }
 
 //Function that displays only 10 tracks for lists with more than 10 songs
@@ -190,16 +194,21 @@ app.theChosenTen = function (userPlaylist){
       topTen.push(userPlaylist[Math.floor(Math.random() * userPlaylist.length)])
     }
     app.displayResults(topTen);
-  } else {
-    app.displayResults(userPlaylist);
+    console.log('top 10', topTen);
+    } else {
+      app.displayResults(userPlaylist);
+    }
   }
-}
+
+  //limit user playlist to only 10tracks for genres with more than 10
+  //randomize each time
 
 
 //KICK OFF APPLICATION 
 app.init = function () {
   app.getInfo();
   app.listenForUserInput();
+
 }
 
 //DOCUMENT READY

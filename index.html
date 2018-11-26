@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Lato|VT323" rel="stylesheet">
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!-- FAVICON -->
     <link type="image/png" href="assets/note.png" rel="icon">
     <!-- STYLES -->
@@ -16,39 +14,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <title>Electronic</title>
 </head>
-<body>
-    <!-- SKIP TO MAIN CONTENT LINK FOR ACCESSEBILITY! -->
-    <a href="#maincontent" class="skip-link">Skip to main content.</a>
+        <!-- SKIP TO MAIN CONTENT LINK FOR ACCESSEBILITY! -->
+        <a href="#maincontent" class="skip-link">Skip to main content.</a>
 
-    <main>
-        <h1 class="animated infinite pulse">ELECTRONICA Music Generator</h1>
-        <div class="intro">
-            <p>Hello there! Please pick your vibe and we'll generate a playlist for you based on what you might like that's electronic infused!</p>
-        </div>
-        <div>
-            <form id="maincontent">
-                <label for="genre">What vibe are you:</label>
-                <select name="Select the genre" id="genre" class="genre">
-                    <option value="" disabled selected class="placeholder">PRESS HERE!</option>
-                    <option value="Rock">Wild & Rebellious</option>
-                    <option value="Pop">Sing Your Energetic Heart Out</optxion>
-                    <option value="Hip Hop/Rap">All About Rhythm & Flow</option>
-                    <option value="R&B/Soul">Soulful & Sensual</option>
-                    <option value="Alternative">Hipster Rock Out</option>
-                    <option value="Teen Pop">Teenage Wasteland</option>
-                    <option value="Dance">Y'all mind if I Shake this Booty Real Quick?</option>
-                </select>
-            </form>
-        </div>
-        <div class="results" id="results"></div>
-    </main>
+        <main>
+            <h1 class="animated infinite pulse">ELECTRONICA Music Generator</h1>
+            <div class="intro">
+                <p>Hello there! Please pick your vibe and we'll generate a playlist for you based on what you might like that's electronic infused!</p>
+            </div>
+            <div>
+                <form id="maincontent">
+                    <label for="genre">What vibe are you:</label>
+                    <select name="Select the genre" id="genre" class="genre">
+                        <option value="" disabled selected class="placeholder">PRESS HERE!</option>
+                        <option value="Rock">Wild & Rebellious</option>
+                        <option value="Pop">Sing Your Energetic Heart Out</optxion>
+                        <option value="Hip Hop/Rap">All About Rhythm & Flow</option>
+                        <option value="R&B/Soul">Soulful & Sensual</option>
+                        <option value="Alternative">Hipster Rock Out</option>
+                        <option value="Teen Pop">Teenage Wasteland</option>
+                        <option value="Dance">Y'all mind if I Shake this Booty Real Quick?</option>
+                    </select>
+                </form>
+            </div>
+            <div class="results" id="results"></div>
+        </main>
 
-    <footer class="footer">
-        <a href="https://www.musixmatch.com/" target="_blank"><img src="assets/badge.svg" class="poweredBy" alt="Powered by Musixmatch logo">
-        <img src="assets/musixmatchLogo.svg" class="logo" alt="Powered by Musixmatch logo"></a>
-        <p>Leya Hatoum & Eric Wing &copy 2018</p>
-    </footer>
-    <!-- Links to JavaScript files and JQuery Library -->
+        <footer class="footer">
+            <a href="https://www.musixmatch.com/" target="_blank"><img src="assets/badge.svg" class="poweredBy" alt="Powered by Musixmatch logo">
+            <img src="assets/musixmatchLogo.svg" class="logo" alt="Powered by Musixmatch logo"></a>
+            <p>Leya Hatoum & Eric Wing &copy 2018</p>
+        </footer>
+        <!-- Links to JavaScript files and JQuery Library -->
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
     <script src="main.js"></script>
 </body>

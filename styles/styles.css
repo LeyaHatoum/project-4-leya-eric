@@ -154,7 +154,8 @@ body {
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
   -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  height: 100%; }
 
 @-webkit-keyframes animationFrames {
   0% {
