@@ -131,6 +131,7 @@ app.listenForUserInput = function(){
 //APPEND PLAYLIST TO THE DOM
 app.displayResults = function(userPlaylist) {
 //need to write a if statement to handle potential handle an error if there are no results, then app will only display results that match parameters
+  $('.partyParrot').hide();
   $('.results').append('<h2>Your Personal Playlist</h2>');
   app.showButton();
   userPlaylist.forEach(track => {
