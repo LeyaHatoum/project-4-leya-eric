@@ -26,6 +26,40 @@ button {
     font-family: 'VT323', monospace;
 }
 
+.buttonDepth {
+    position: absolute;
+}
+
+.randomButton {
+     background-color: seagreen; 
+    border: none;
+    @include font-size(20);
+    color: white;
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin-bottom: 30px;
+    // text-align: center;
+    // text-decoration: none;
+    // display: inline-block;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    transition: all 0.3s ease-in;
+}
+
+.randomButton:active {
+  box-shadow: 0 3px 0 #00823F;
+  top: 3px;
+}
+
+.randomButton:hover {
+    box-shadow: 10px 10px 12px rgba(5px,5px,5px,0.5);
+}
+
+.genre {
+    margin-top: 20px;
+    width: 400px;
+    border-radius: 10px;
+}
+
 // Acessibility skip link styling
 // ==============================
 .skip-link {
@@ -97,10 +131,10 @@ select {
     text-align: center;
    -webkit-appearance: none; 
    -moz-appearance: none;
-    width: 200px;
     margin-left: 20px;
     @include font-size(20);
-   
+    width: 500px; 
+    text-align-last:center; 
    &:hover .placeholder {
        display: none;
    }
@@ -212,6 +246,9 @@ h3{
         @include font-size(45);
         text-shadow: 1px 1px seagreen;
         width: 95%;
+    }
+    select {
+        margin-left: 0;
     }
 
     .intro {

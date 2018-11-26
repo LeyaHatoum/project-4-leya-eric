@@ -152,7 +152,7 @@ app.displayResults = function(userPlaylist) {
 
 // if the playlist is more that 10 tracks show a button to randomize
 app.showButton = function (userPlaylist) {
-  $('.results').append(`<button>Randomize me!</button>`);
+  $('.results').append(`<div class"buttonDepth><button class="randomButton">Randomize me!</button></div>`);
   console.log('do something');
   app.randomizer();
 }
