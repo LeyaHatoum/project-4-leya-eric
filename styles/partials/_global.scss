@@ -108,6 +108,7 @@ h1 {
     text-align: center;
     @include font-size(60);
     text-shadow: 3px 3px seagreen;
+    border: 10px solid transparent;
 }
 
 .intro {
@@ -159,7 +160,15 @@ select {
    }
 }
 
+.partyParrot {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
 
+    img{
+        width: 100%;
+    }
+}
 h2 {
     font-family: 'VT323', monospace;
     text-align: center;
