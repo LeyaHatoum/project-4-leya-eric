@@ -249,7 +249,8 @@ h1 {
   text-align: center;
   font-size: 60px;
   font-size: 6rem;
-  text-shadow: 3px 3px seagreen; }
+  text-shadow: 3px 3px seagreen;
+  border: 10px solid transparent; }
 
 .intro {
   margin: 0 auto;
@@ -297,6 +298,13 @@ select {
   overflow: wrap; }
   select:hover .placeholder {
     display: none; }
+
+.partyParrot {
+  height: 200px;
+  width: 200px;
+  margin: 0 auto; }
+  .partyParrot img {
+    width: 100%; }
 
 h2 {
   font-family: 'VT323', monospace;
