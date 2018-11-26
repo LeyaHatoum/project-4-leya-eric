@@ -285,7 +285,7 @@ select {
   border: none;
   cursor: pointer;
   text-align: center;
-  width: 300px;
+  width: 375px;
   text-align-last: center;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -452,7 +452,7 @@ h3 {
     width: 95%; }
   select {
     margin-left: 0;
-    width: 300px; }
+    width: 330px; }
   .intro {
     width: 85%;
     padding: 2px; }

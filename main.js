@@ -28,7 +28,7 @@ app.getInfo = function (number) {
 
 //CREATE A MEGALIST TO HOLD MORE THAN 100 SONGS
 //The api only allows 100 results per page, but we can have as many pages as we want. So to work around that we want to compile the results of 10 pages into one page, in order to display them all on the screen at once.
-const pageNumber = [1,2];
+const pageNumber = [1,2,3,4,5,6,7,8,9,10];
 const ajaxPromises = pageNumber.map(app.getInfo);
 
 $.when(...ajaxPromises).then((...res) => {
